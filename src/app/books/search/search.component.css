@@ -1,130 +1,23 @@
-.search-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
-    text-align: center;
-  }
+.searchbox-container {
+  text-align: center;
+}
 
-  .search-box {
-    display: flex;
-    gap: 0.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-  .search-box input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
+.search-box input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
 
-  .search-button {
-    background: linear-gradient(to right, #32c1ca, #2b5e99);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .search-button:hover {
-    opacity: 0.9;
-  }
-
-  .loading-error-container {
-    text-align: center;
-  }
-
-  .loading {
-    color: #2b5e99;
-  }
-
-  .error {
-    color: #ff4444;
-  }
-
-  .fallback-text {
-    text-align: center;
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 768px) {
-    .books-grid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .search-box {
-      flex-direction: column;
-    }
-
-    .search-button {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .books-grid {
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    }
-  }
-
-
-
-
-  .search-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  .search-input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-
-  .book-card {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    background: white;
-  }
-
-  .book-thumbnail {
-    width: 128px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-
-  .book-info {
-    flex: 1;
-  }
-
-  .status-message, .error-message {
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-  }
-
-  .error-message {
-    background: #fff3f3;
-    color: #d32f2f;
-  }
-
-  .description {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.5;
-  }
+.fallback-text {
+  text-align: center;
+  font-size: 1.2rem;
+}

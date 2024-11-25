@@ -11,9 +11,9 @@ import { UserService } from '../shared/user.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  userService = inject(UserService);
-  router = inject(Router);
-  username = signal('');
+  protected userService = inject(UserService);
+  private router = inject(Router);
+  protected username = signal('');
 
   logout() {
     this.userService.clearUsername();

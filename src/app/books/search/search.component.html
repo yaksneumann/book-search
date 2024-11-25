@@ -2,112 +2,15 @@
   <app-book-header />
 </div>
 
-<div class="search-container">
-  
-  <div class="">
-    <div class="search-box">
-      shlomos search
-      <input type="text" ((keyup))="searchInput.set($any($event.target).value)" placeholder="Search a book">
-
-      
-    </div>
-    <div class="search-box">
-      new search
-      <input type="text" [ngModel]="searchQuery()" (ngModelChange)="onSearch($event)" placeholder="Search for books..." class="search-input" />
-      <!-- <input
-        type="text"
-        [formControl]="searchControl"
-        placeholder="Search for books..."
-        (keyup.enter)="search()"
-      >
-      <button (click)="search()" class="search-button">Search</button> -->
-    </div>
-    <!-- <div class="search-box">
-      <input type="text" ((keyup))="searchInput.set($any($event.target).value)" placeholder="Search a book">
-    </div> -->
-    <!-- <div class="search-box">
-      <input type="text" [formControl]="searchControl" placeholder="Search a book" (keyup)="search()">
-      <button (click)="search($event.target)" class="search-button">Search</button>
-    </div> -->
+<div class="searchbox-container">
+  <h3>Search for your favorite book</h3>
+  <div class="search-box">
+    <input #searchQuery type="text" (input)="searchInput.set(searchQuery.value)" placeholder="Search a book">
   </div>
 </div>
 
 @if (books()) {
-<!-- <app-books-container title="Available Books"> -->
-
-  <!-- @if (isFetching() && !error()) {
-            <p class="fallback-text">Fetching favorite Books ...</p>
-          } -->
-
-  <!-- @if (error()) {
-            <p class="fallback-text">{{ error() }}</p>
-          } -->
   <app-books title="Available Books" [books]="books()!" [wishList]="true" />
-
-<!-- </app-books-container> -->
-
 } @else if (books()?.length === 0) {
 <p class="fallback-text">Unfortunately, no books could be found.</p>
 }
-
-
-<!-- trying pagination -->
-<div class="pagination" *ngIf="totalBooks() > 0">
-  <button 
-    (click)="previousPage()"
-    [disabled]="currentPage() === 0"
-    class="pagination-button"
-  >
-    Previous
-  </button>
-  <span>Page {{ currentPage() + 1 }}</span>
-  <button 
-    (click)="nextPage()"
-    [disabled]="(currentPage() + 1) * 20 >= totalBooks()"
-    class="pagination-button"
-  >
-    Next
-  </button>
-</div>
-<!--  end trying pagination -->
-
-
-<!-- trying new search  -->
-<div class="search-container">
-  <input
-    type="text"
-    [ngModel]="searchQuery()"
-    (ngModelChange)="onSearch($event)"
-    placeholder="Search for books..."
-    class="search-input"
-  />
-
-  <div class="status-message" *ngIf="isLoading()">
-    Searching...
-  </div>
-
-  <div class="error-message" *ngIf="errorMessage()">
-    {{ errorMessage() }}
-  </div>
-
-  <div class="results-container" *ngIf="!isLoading() && searchResults().length">
-    <div class="book-card" *ngFor="let book of searchResults()">
-      <img
-        [src]="book.volumeInfo.imageLinks?.thumbnail || 'assets/no-cover.png'"
-        [alt]="book.volumeInfo.title"
-        class="book-thumbnail"
-      />
-      <div class="book-info">
-        <h3>{{ book.volumeInfo.title }}</h3>
-        <p *ngIf="book.volumeInfo.authors">
-          by {{ book.volumeInfo.authors.join(', ') }}
-        </p>
-        <p class="description" *ngIf="book.volumeInfo.description">
-          {{ book.volumeInfo.description | slice:0:200 }}...
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- end trying new search -->

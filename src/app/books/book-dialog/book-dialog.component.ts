@@ -1,4 +1,4 @@
-import { Component, Input, output, Output, EventEmitter, inject } from '@angular/core';
+import { Component, Input, output, inject } from '@angular/core';
 import { Book } from '../book.model';
 import { BookService } from '../book.service';
 
@@ -11,19 +11,14 @@ import { BookService } from '../book.service';
 })
 export class BookDialogComponent {
   private bookService = inject(BookService);
-
-  @Input({ required: true }) book!: Book;
-  // @Output() close = new EventEmitter<void>();
+  @Input() book!: Book;
   close = output<void>();
 
-
-  get isInWishlist(): boolean {
-    console.log('helllo ');
-    //return true;
+  protected get isInWishlist(): boolean {
     return this.bookService.userWishlist().some(item => item.id === this.book.id);
   }
 
-  toggleWishlist(): void {
+  protected toggleWishlist(): void {
     if (this.isInWishlist) {
       this.bookService.removeFromWishlist(this.book.id);
     } else {

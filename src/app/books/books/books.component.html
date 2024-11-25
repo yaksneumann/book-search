@@ -1,7 +1,3 @@
-    <!-- <div class="loading-error-container" *ngIf="loading() || error()">
-      <p *ngIf="loading()" class="loading">Searching books...</p>
-      <p *ngIf="error()" class="error">{{ error() }}</p>
-    </div> -->
     <section>
         <h2>{{ title() }}</h2>
         @if (books()) {
@@ -30,37 +26,4 @@
       [book]="selectedBook()!"
       (close)="selectedBook.set(null)"
     ></app-book-dialog>
-
-   
     }
-
-    
-    
-    <!-- <div class="pagination" *ngIf="totalBooks() > 0">
-      <button 
-        (click)="previousPage()"
-        [disabled]="currentPage() === 0"
-        class="pagination-button"
-      >
-        Previous
-      </button>
-      <span>Page {{ currentPage() + 1 }}</span>
-      <button 
-        (click)="nextPage()"
-        [disabled]="(currentPage() + 1) * 20 >= totalBooks()"
-        class="pagination-button"
-      >
-        Next
-      </button>
-    </div> -->
-
-
-
-      <!-- @if (selectedBook()) {
-        <app-book-dialog
-        [book]="selectedBook()!"
-        (close)="closeDialog()"
-        (addToWishlist)="addToWishlist($event)"
-        (removeFromWishlist)="removeFromWishlist($event)"
-      ></app-book-dialog>
-       } -->

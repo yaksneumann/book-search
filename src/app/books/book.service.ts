@@ -9,6 +9,7 @@ import { Book } from './book.model';
 export class BookService {
   private http = inject(HttpClient);
   private apiUrl = 'https://www.googleapis.com/books/v1/volumes';
+  private maxResults: number = 20;
   private wishlist = signal<Book[]>([]);
   readonly userWishlist = this.wishlist.asReadonly();
 
@@ -20,11 +21,7 @@ export class BookService {
   }
 
   searchBooks(query: string, startIndex: number = 0): Observable<{ books: Book[]; totalItems: number }> {
-    return this.http
-      .get<any>(
-        `${this.apiUrl}?q=${query}&startIndex=${startIndex}&maxResults=20`
-      )
-      .pipe(
+    return this.http.get<any>(`${this.apiUrl}?q=${query}&startIndex=${startIndex}&maxResults=${this.maxResults}`).pipe(
         map((response) => ({
           books: response.items?.map(this.mapBookResponse) ?? [],
           totalItems: response.totalItems ?? 0,

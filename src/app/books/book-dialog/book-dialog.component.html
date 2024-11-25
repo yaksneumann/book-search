@@ -1,5 +1,3 @@
-<p>book-dialog works!</p>
-
 <div class="dialog-overlay" (click)="close.emit()">
   <div class="dialog-content" (click)="$event.stopPropagation()">
     <button class="close-button" (click)="close.emit()">×</button>
@@ -22,7 +20,6 @@
           @if (book.pageCount) {
             <p>Pages: {{ book.pageCount }}</p>
           }
-          
         </div>
         
         @if (book.description) {
@@ -31,7 +28,6 @@
           <p>{{ book.description }}</p>
         </div>
       }
-
         <button 
           class="wishlist-button"
           [class.in-wishlist]="isInWishlist"

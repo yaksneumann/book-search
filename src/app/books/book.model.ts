@@ -7,8 +7,3 @@ export interface Book {
   publishedDate: string;
   pageCount: number;
 }
-
-export interface BooksResults {
-  books: Book[];
-  totalItems: number;
-}
