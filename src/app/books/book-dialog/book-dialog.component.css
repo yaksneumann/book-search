@@ -1,0 +1,148 @@
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .dialog-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+    line-height: 1;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+
+  .close-button:hover {
+    background: #f0f0f0;
+  }
+
+  .book-details {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: 2rem;
+  }
+
+  .book-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h2 {
+    color: #2b5e99;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .authors {
+    color: #666;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .metadata {
+    display: flex;
+    gap: 1.5rem;
+    color: #666;
+    font-size: 0.875rem;
+  }
+
+  .metadata p {
+    margin: 0;
+  }
+
+  .description h3 {
+    color: #2b5e99;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  .description p {
+    margin: 0;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .wishlist-button {
+    margin-top: auto;
+    background: linear-gradient(to right, #32c1ca, #2b5e99);
+    color: white;
+    border: none;
+    padding: 0.875rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .wishlist-button:hover {
+    opacity: 0.9;
+  }
+
+  .wishlist-button.in-wishlist {
+    background: #ff4444;
+  }
+
+  @media (max-width: 768px) {
+    .dialog-content {
+      padding: 1.5rem;
+    }
+
+    .book-details {
+      grid-template-columns: 1fr;
+    }
+
+    .book-cover {
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .dialog-content {
+      padding: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
+
+    .metadata {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }

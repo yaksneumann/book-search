@@ -1,0 +1,46 @@
+header {
+    text-align: center;
+    background: linear-gradient(to right, #32c1ca, #2b5e99);
+    padding: 1rem;
+    color: white;
+}
+
+header img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+    margin: -12px 0px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+
+}
+
+.nav-container a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.nav-container a:hover {
+    opacity: 0.8;
+}
+
+.nav-container a.logout {
+    padding-left: 30px;
+    color: #2b5e99;
+}
+
+@media (max-width: 580px) {
+    .nav-container {
+        gap: 1rem;
+
+    }
+}

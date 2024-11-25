@@ -1,0 +1,13 @@
+<header>
+    <nav class="nav-container">
+            <a routerLink="/">
+                <img src="esquare-icon.jpeg" alt="" width="50px">
+            </a>
+        <a routerLink="/">Home</a>
+        @if (userService.hasUsername()) {
+            <a routerLink="/search">Search</a>
+            <a routerLink="/wishlist">Wish list</a>
+            <a class="logout" (click)="logout()">Logout</a>
+        }
+    </nav>
+</header>

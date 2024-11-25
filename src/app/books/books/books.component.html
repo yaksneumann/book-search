@@ -1,0 +1,66 @@
+    <!-- <div class="loading-error-container" *ngIf="loading() || error()">
+      <p *ngIf="loading()" class="loading">Searching books...</p>
+      <p *ngIf="error()" class="error">{{ error() }}</p>
+    </div> -->
+    <section>
+        <h2>{{ title() }}</h2>
+        @if (books()) {
+          <div class="books-grid">
+            @for (book of books(); track book.id) {
+            <div class="book-card" (click)="showBookDetails(book)">
+              <div class="card-content">
+                <img [src]="book.thumbnail || '/assets/no-cover.png'" [alt]="book.title" class="book-cover">
+                <div class="book-info">
+                  <h3>{{ book.title }}</h3>
+                  <p>{{ book.authors.join(', ') || 'Unknown Author' }}</p>
+                </div>
+                @if (isInWishlist(book) && wishList()) {
+                <div class="wishlist-indicator">
+                  ★ In Wishlist
+                </div>
+                }
+              </div>
+            </div>
+            }
+          </div>
+          }
+    </section>
+    @if (selectedBook()) {
+      <app-book-dialog
+      [book]="selectedBook()!"
+      (close)="selectedBook.set(null)"
+    ></app-book-dialog>
+
+   
+    }
+
+    
+    
+    <!-- <div class="pagination" *ngIf="totalBooks() > 0">
+      <button 
+        (click)="previousPage()"
+        [disabled]="currentPage() === 0"
+        class="pagination-button"
+      >
+        Previous
+      </button>
+      <span>Page {{ currentPage() + 1 }}</span>
+      <button 
+        (click)="nextPage()"
+        [disabled]="(currentPage() + 1) * 20 >= totalBooks()"
+        class="pagination-button"
+      >
+        Next
+      </button>
+    </div> -->
+
+
+
+      <!-- @if (selectedBook()) {
+        <app-book-dialog
+        [book]="selectedBook()!"
+        (close)="closeDialog()"
+        (addToWishlist)="addToWishlist($event)"
+        (removeFromWishlist)="removeFromWishlist($event)"
+      ></app-book-dialog>
+       } -->

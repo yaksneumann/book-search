@@ -1,0 +1,32 @@
+<div class="header-container">
+  <app-book-header />
+</div>
+
+@if (bookService.userWishlist().length != 0) {
+  <!-- <app-books-container title="My Wishlist" username="{{ userService.getUsername()() }}"> -->
+  
+    <!-- @if (isFetching() && !error()) {
+                <p class="fallback-text">Fetching favorite Books ...</p>
+              } -->
+  
+    <!-- @if (error()) {
+                <p class="fallback-text">{{ error() }}</p>
+              } -->
+    <app-books [books]="bookService.userWishlist()" title="My Wishlist" [wishList]="false" />
+  
+  <!-- </app-books-container> -->
+  
+  } @else if (bookService.userWishlist().length === 0) {
+  <p class="fallback-text">Your wishlist is empty</p>
+  }
+
+  <!-- @if (books()) {
+    <app-books-container title="My Wishlist Books" username="{{ userService.getUsername()() }}">
+    
+      <app-books [books]="books()!" />
+    
+    </app-books-container>
+    
+    } @else if (books().length === 0) {
+    <p class="fallback-text">Unfortunately, no books could be found.</p>
+    } -->

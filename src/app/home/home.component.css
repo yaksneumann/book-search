@@ -1,0 +1,117 @@
+.home-container {
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 120px); /* Account for header and padding */
+    padding: 2rem;
+  }
+
+  .welcome-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+  }
+
+  h1 {
+    color: #2b5e99;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .username-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    color: #555;
+    font-weight: 500;
+  }
+
+  input {
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #32c1ca;
+  }
+
+  input.error {
+    border-color: #ff4444;
+  }
+
+  .error-message {
+    color: #ff4444;
+    font-size: 0.875rem;
+  }
+
+  .submit-button {
+    background: linear-gradient(to right, #32c1ca, #2b5e99);
+    color: white;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .submit-button:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  .submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    .home-container {
+      padding: 1rem;
+    }
+
+    .welcome-card {
+      padding: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    input, .submit-button {
+      padding: 0.75rem;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .welcome-card {
+      padding: 1rem;
+      max-width: 380px;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+    }
+  }

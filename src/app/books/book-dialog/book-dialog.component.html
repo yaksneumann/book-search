@@ -1,0 +1,45 @@
+<p>book-dialog works!</p>
+
+<div class="dialog-overlay" (click)="close.emit()">
+  <div class="dialog-content" (click)="$event.stopPropagation()">
+    <button class="close-button" (click)="close.emit()">×</button>
+    
+    <div class="book-details">
+      <img 
+        [src]="book.thumbnail || '/assets/no-cover.png'"
+        [alt]="book.title"
+        class="book-cover"
+      >
+      
+      <div class="book-info">
+        <h2>{{ book.title }}</h2>
+        <p class="authors">{{ book.authors.join(', ') || 'Unknown Author' }}</p>
+        
+        <div class="metadata">
+          @if (book.publishedDate) {
+            <p>Published: {{ book.publishedDate }}</p>
+          }
+          @if (book.pageCount) {
+            <p>Pages: {{ book.pageCount }}</p>
+          }
+          
+        </div>
+        
+        @if (book.description) {
+        <div class="description">
+          <h3>Description</h3>
+          <p>{{ book.description }}</p>
+        </div>
+      }
+
+        <button 
+          class="wishlist-button"
+          [class.in-wishlist]="isInWishlist"
+          (click)="toggleWishlist()"
+        >
+          {{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

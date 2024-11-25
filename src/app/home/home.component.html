@@ -1,0 +1,23 @@
+<div class="home-container">
+  <div class="welcome-card">
+    <h1>Welcome to your book search </h1>
+    <p>Start by entering your username</p>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="username-form">
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input id="username" type="text" formControlName="username" [class.error]="showError"
+          placeholder="Enter your username">
+        @if (showError) {
+        <span class="error-message">
+          Username is required (minimum 1 character)
+        </span>
+        }
+      </div>
+
+      <button type="submit" class="submit-button" [disabled]="userForm.invalid">
+        Explore Books
+      </button>
+    </form>
+  </div>
+</div>
